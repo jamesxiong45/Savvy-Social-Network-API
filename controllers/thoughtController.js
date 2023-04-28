@@ -31,7 +31,7 @@ module.exports = {
     try {
       const dbThoughtData = await Thoughts.create(req.body);
       if (!dbThoughtData) {
-        return res.status(404).json({ message: "No thoughts!" });
+        return res.status(404).json({ message: "Unable to create thoughts!" });
       }
       const user = await User.findOneAndUpdate(
         req.body.userId,
@@ -39,7 +39,7 @@ module.exports = {
         { runValidators: true, new: true }
       );
       if (!user) {
-        return res.status(404).json({ message: "error. No thoughts!" });
+        return res.status(404).json({ message: "Unable to create thoughts!" });
       }
       res.json(dbThoughtData);
     } catch (err) {
@@ -91,7 +91,7 @@ module.exports = {
         { runValidators: true, new: true }
       );
       if (!thought) {
-        return res.status(404).json({ message: "error with thought!" });
+        return res.status(404).json({ message: "Error adding Reaction" });
       }
       res.json(thought);
     } catch (err) {
