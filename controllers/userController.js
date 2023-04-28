@@ -27,7 +27,7 @@ module.exports = {
 
   async getUsersById(req, res) {
     try {
-      const user = await User.findOne({ _id: req.params.id }).select('-__v');
+      const user = await User.findOne({ _id: req.params.usersId }).select('-__v');
       if (!user) {
         return res.status(404).json({ message: "No user with this ID" });
       }
@@ -41,7 +41,7 @@ module.exports = {
   async updateUsers(req, res) {
     try {
       const updatedUser = await User.findOneAndUpdate(
-        { _id: req.params.id },
+        { _id: req.params.usersId },
         { $set: req.body },
         { new: true }
       );
@@ -57,7 +57,7 @@ module.exports = {
 
   async deleteUsers(req, res) {
     try {
-      const deletedUser = await User.findOneAndRemove({ _id: req.params.id });
+      const deletedUser = await User.findOneAndRemove({ _id: req.params.usersId });
       if (!deletedUser) {
         return res.status(404).json({ message: "No user with this ID." });
       }
@@ -72,7 +72,7 @@ module.exports = {
     console.log(req.body);
     try {
       const updatedUser = await User.findOneAndUpdate(
-        { _id: req.params.id },
+        { _id: req.params.usersId },
         { $addToSet: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
@@ -91,7 +91,7 @@ module.exports = {
     console.log(req.body);
     try {
       const updatedUser = await User.findOneAndUpdate(
-        { _id: req.params.id },
+        { _id: req.params.usersId },
         { $pull: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
