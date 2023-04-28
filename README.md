@@ -1,4 +1,7 @@
 # Savvy-Social-Network-API
+![Savvy-Social-Network-API Picture](https://user-images.githubusercontent.com/119706303/235061853-1776c70c-bbff-40bb-8cac-78d951d49480.JPG)
+
+
 
 ## Description
 
@@ -21,7 +24,7 @@ This app was created through mainly javascript and utilizes Express.js, Mongoose
 
 ## Video Demo
 
-
+https://drive.google.com/file/d/1S-bc8d6l6ReXW0ASczCWwikf_nxIswFE/view
 
 ## GitHub Repo
 
